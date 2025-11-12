@@ -176,32 +176,51 @@ const categoryCardsContainer = document.querySelector('.category-cards');
 if (heroEl && (categoryCards.length || categoryCardsContainer)) {
     const navEl = document.querySelector('.glass-nav');
     const panelEl = document.querySelector('.hero-panel');
+    const categoryActionsEl = panelEl?.querySelector('.category-actions');
     const desiredGapPx = 16;
     let hasExpandedOnce = false;
+    let panelHeightWatcher = null;
+    let heightReleaseTimeout = null;
 
-    const computeAndSetExpandedHeight = () => {
+    const computeAndSetExpandedHeight = (startState = null) => {
         if (!navEl || !panelEl) return;
         const navRect = navEl.getBoundingClientRect();
         const panelRect = panelEl.getBoundingClientRect();
-        // Gap between navbar bottom and current panel top
         const currentGapTop = panelRect.top - navRect.bottom;
         const deltaUp = Math.max(0, currentGapTop - desiredGapPx);
-
-        // Read current computed margin-top
         const computedStyles = window.getComputedStyle(panelEl);
-        const currentMarginTop = parseFloat(computedStyles.marginTop) || 0;
-        const currentHeight = panelRect.height;
+        const startMarginTop = startState?.marginTop ?? (parseFloat(computedStyles.marginTop) || 0);
+        const startHeight = startState?.height ?? panelRect.height;
 
-        // Lock current values to enable CSS transition
-        panelEl.style.height = `${currentHeight}px`;
-        panelEl.style.marginTop = `${currentMarginTop}px`;
-        void panelEl.offsetHeight; // reflow
+        // Freeze current dimensions
+        panelEl.style.marginTop = `${startMarginTop}px`;
+        panelEl.style.height = `${startHeight}px`;
+        void panelEl.offsetHeight; // reflow to lock start state
 
-        // Target: top aligns under navbar with small gap, and height fills remaining viewport
-        const targetMarginTop = Math.max(0, currentMarginTop - deltaUp);
-        const fixedExpandedHeight = Math.max(0, window.innerHeight - (navRect.bottom + desiredGapPx));
+        // Target dimensions based on updated content
+        const targetMarginTop = Math.max(0, startMarginTop - deltaUp);
+        const targetHeight = panelEl.scrollHeight;
+
         panelEl.style.marginTop = `${targetMarginTop}px`;
-        panelEl.style.height = `${fixedExpandedHeight}px`;
+        panelEl.style.height = `${targetHeight}px`;
+
+        if (!panelHeightWatcher) {
+            panelHeightWatcher = new ResizeObserver(() => {
+                if (!panelEl || panelEl.style.height === 'auto') return;
+                const updatedHeight = panelEl.scrollHeight;
+                if (!Number.isFinite(updatedHeight) || updatedHeight <= 0) return;
+                panelEl.style.height = `${updatedHeight}px`;
+            });
+            panelHeightWatcher.observe(panelEl);
+        }
+
+        if (heightReleaseTimeout) {
+            clearTimeout(heightReleaseTimeout);
+        }
+        heightReleaseTimeout = setTimeout(() => {
+            if (!panelEl) return;
+            panelEl.style.height = 'auto';
+        }, 650);
     };
 
     // Keep a fixed expanded height; recompute on resize instead of switching to auto
@@ -211,6 +230,12 @@ if (heroEl && (categoryCards.length || categoryCardsContainer)) {
         if (!targetCard) return;
         // Always prevent navigation for card clicks
         event.preventDefault();
+        const startRect = panelEl?.getBoundingClientRect();
+        const startStyles = panelEl ? window.getComputedStyle(panelEl) : null;
+        const startState = startRect ? {
+            height: startRect.height,
+            marginTop: startStyles ? parseFloat(startStyles.marginTop) || 0 : 0
+        } : null;
         // If already expanded, just switch the featured card
         if (hasExpandedOnce) {
             if (categoryCardsContainer) {
@@ -218,17 +243,18 @@ if (heroEl && (categoryCards.length || categoryCardsContainer)) {
             }
             document.querySelectorAll('.category-card.is-featured').forEach((el) => el.classList.remove('is-featured'));
             targetCard.classList.add('is-featured');
+            requestAnimationFrame(() => computeAndSetExpandedHeight(startState));
             return;
         }
         // First click: expand and feature
         heroEl.classList.add('hero--expanded');
-        computeAndSetExpandedHeight();
         hasExpandedOnce = true;
         panelEl?.setAttribute('data-expanded', 'true');
         if (categoryCardsContainer) {
             categoryCardsContainer.classList.add('cards--featured');
         }
         targetCard.classList.add('is-featured');
+        requestAnimationFrame(() => computeAndSetExpandedHeight(startState));
     };
 
     if (categoryCardsContainer) {
@@ -242,7 +268,15 @@ if (heroEl && (categoryCards.length || categoryCardsContainer)) {
     // Keep position correct on resize while expanded
     window.addEventListener('resize', () => {
         if (heroEl.classList.contains('hero--expanded')) {
-            computeAndSetExpandedHeight();
+            requestAnimationFrame(() => computeAndSetExpandedHeight());
+        }
+    });
+
+    categoryActionsEl?.addEventListener('transitionend', (event) => {
+        if (event.propertyName === 'max-height' || event.propertyName === 'height') {
+            if (heroEl.classList.contains('hero--expanded')) {
+                requestAnimationFrame(() => computeAndSetExpandedHeight());
+            }
         }
     });
 }
