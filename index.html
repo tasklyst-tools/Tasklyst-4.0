@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasklyst.io</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body id="top">
+    <nav class="glass-nav">
+        <div class="logo">Tasklyst.io</div>
+        <ul class="nav-links">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#">Tools</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <div class="color-slider">
+            <label for="neonHue">Glow</label>
+            <input type="range" id="neonHue" min="0" max="360" value="120">
+        </div>
+        <a class="nav-cta" href="login.html">Get Started</a>
+    </nav>
+
+    <main class="hero">
+        <h1>Instant Access to 50+ Tools, <br> Stop the Tab Chaos.</h1>
+        <p>Tired of endless searches and scattered bookmarks?
+             Tasklyst is a single, clean hub for all your simple digital needs,
+              from unit conversion and data formatting to advanced calculators.
+               Get instant, distraction-free access to your essential utilities
+                and immediately jump back to your most important work.</p>
+        <div class="hero-panel">
+            <div class="category-cards">
+                <a href="#developers" class="category-card">
+                    <h3>Developers</h3>
+                    
+                </a>
+                <a href="#designers" class="category-card">
+                    <h3>Designers</h3>
+                    
+                </a>
+                <a href="#others" class="category-card">
+                    <h3>Others</h3>
+                    
+                </a>
+            </div>
+            <div class="category-actions">
+                <a href="#" class="category-action">Quick Start</a>
+                <a href="#" class="category-action">Top Tools</a>
+                <a href="#" class="category-action">Latest Adds</a>
+                <a href="#" class="category-action">Favorites</a>
+                <a href="#" class="category-action">Team Share</a>
+                <a href="#" class="category-action">Request Tool</a>
+            </div>
+        </div>
+    </main>
+
+    <section id="pricing" class="pricing">
+        <div class="pricing-header">
+            <h2>Choose Your Plan</h2>
+            <p>Flexible options to unlock the full Tasklyst experience.</p>
+        </div>
+        <div class="pricing-grid">
+            <article class="pricing-card">
+                <h3>Starter</h3>
+                <div class="pricing-price">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-amount">0</span>
+                    <span class="pricing-period">/mo</span>
+                </div>
+                <p class="pricing-tagline">Perfect for testing the waters with our essential tools.</p>
+                <ul class="pricing-features">
+                    <li>Access to 10 core utilities</li>
+                    <li>Community templates</li>
+                    <li>Weekly productivity tips</li>
+                </ul>
+                <a href="#" class="pricing-cta">Get Started</a>
+            </article>
+
+            <article class="pricing-card pricing-card--featured">
+                <div class="pricing-badge">Most Popular</div>
+                <h3>Pro Workspace</h3>
+                <div class="pricing-price">
+                    <span class="pricing-currency">$</span>
+                    <span class="pricing-amount">12</span>
+                    <span class="pricing-period">/mo</span>
+                </div>
+                <p class="pricing-tagline">Everything you need to streamline your daily operations.</p>
+                <ul class="pricing-features">
+                    <li>All 50+ Tasklyst tools</li>
+                    <li>Team collaboration hub</li>
+                    <li>Custom automations</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="pricing-cta">Upgrade Now</a>
+            </article>
+
+            <article class="pricing-card">
+                <h3>Enterprise Suite</h3>
+                <div class="pricing-price">
+                    <span class="pricing-amount">Let’s talk</span>
+                </div>
+                <p class="pricing-tagline">Tailored solutions, security reviews, and dedicated onboarding.</p>
+                <ul class="pricing-features">
+                    <li>Custom deployment</li>
+                    <li>Advanced governance</li>
+                    <li>Dedicated success manager</li>
+                    <li>24/7 escalation line</li>
+                </ul>
+                <a href="#" class="pricing-cta">Contact Sales</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-header">
+            <h2>Let’s Build Your Flow</h2>
+            <p>Reach out for demos, partnerships, or to map out a workspace tailored to your team.</p>
+        </div>
+        <div class="contact-body">
+            <div class="contact-details">
+                <div class="detail">
+                    <span class="detail-label">Email</span>
+                    <a href="mailto:hello@tasklyst.io">hello@tasklyst.io</a>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">HQ</span>
+                    <p>221B Aurora Avenue<br>San Francisco, CA</p>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Support Hours</span>
+                    <p>Mon–Fri · 9am–6pm PT</p>
+                </div>
+                <div class="contact-social">
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Discord">Discord</a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="field">
+                    <label for="contactName">Name</label>
+                    <input type="text" id="contactName" name="name" placeholder="Your name">
+                </div>
+                <div class="field">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" name="email" placeholder="you@company.com">
+                </div>
+                <div class="field">
+                    <label for="contactTopic">Topic</label>
+                    <select id="contactTopic" name="topic">
+                        <option value="">Select one</option>
+                        <option value="demo">Product demo</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="enterprise">Enterprise inquiry</option>
+                        <option value="support">Support</option>
+                    </select>
+                </div>
+                <div class="field field--full">
+                    <label for="contactMessage">How can we help?</label>
+                    <textarea id="contactMessage" name="message" rows="4" placeholder="Tell us about your workflow..."></textarea>
+                </div>
+                <button type="submit" class="contact-submit">Send Message</button>
+                <p class="contact-disclaimer">By submitting, you agree to receive occasional updates from Tasklyst. No spam.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand" id="about">
+                <div class="footer-logo">Tasklyst.io</div>
+                <p>One streamlined hub to launch, automate, and finish the work that matters.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Discord">Discord</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <span class="footer-title">Product</span>
+                    <a href="#top">Overview</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Roadmap</a>
+                </div>
+                <div class="footer-column">
+                    <span class="footer-title">Company</span>
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Partners</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <span class="footer-title">Resources</span>
+                    <a href="#">Blog</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">API Status</a>
+                    <a href="#">Security</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-meta">
+            <span>© <span id="footerYear"></span> Tasklyst Labs. All rights reserved.</span>
+            <div class="footer-meta-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

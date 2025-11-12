@@ -1,0 +1,59 @@
+LOGO PROMPTS FOR TASKLyst.io - SIMPLE & PREMIUM
+================================================
+
+PROMPT 1: Ultra Minimalist (RECOMMENDED)
+"A premium minimalist logo for Tasklyst.io. Simple geometric 'T' letterform, 
+refined and elegant. Clean lines, luxury aesthetic, sophisticated. White or 
+monochrome with subtle glow. Dark background optimized. Vector, scalable, 
+professional. Ultra-minimal, timeless design."
+
+PROMPT 2: Premium Symbol
+"Luxury logo mark for Tasklyst.io. Single geometric shape - circle, square, 
+or abstract node. Minimalist, refined, sophisticated. Elegant simplicity. 
+Monochromatic with optional subtle neon accent. Premium feel, scalable vector. 
+Works perfectly on dark glass backgrounds."
+
+PROMPT 3: Refined Wordmark
+"Premium wordmark logo for Tasklyst.io. Clean, modern typography. Elegant 
+letterforms, sophisticated spacing. Minimalist design. White or light gray 
+with subtle glow effect. Luxury aesthetic, professional, timeless."
+
+PROMPT 4: Icon + Wordmark Premium
+"Sophisticated logo for Tasklyst.io. Minimal icon (simple geometric shape or 
+refined 'T') paired with elegant wordmark. Clean, luxury design. Monochromatic 
+with optional subtle accent. Premium feel, scalable, professional branding."
+
+PROMPT 5: Ultra Simple Premium
+"Premium minimalist logo for Tasklyst.io. Single elegant geometric form - 
+circle with subtle detail, refined line, or minimal symbol. Sophisticated, 
+luxury aesthetic. Clean white or monochrome with soft glow. Ultra-minimal, 
+timeless, professional."
+
+PROMPT 6: Master Prompt (BEST FOR AI)
+"Create a premium, ultra-minimalist logo for Tasklyst.io. Design: Single 
+geometric element - refined 'T' letterform or simple abstract shape. Style: 
+Luxury, sophisticated, elegant simplicity. Color: Monochrome white/light gray 
+with subtle neon glow accent. Background: Dark/black optimized. Effect: 
+Subtle glow, glass-like refinement. Format: Vector, scalable, professional. 
+Mood: Premium, refined, minimalist, timeless. Avoid: Complexity, multiple 
+elements, bright colors, busy designs."
+
+DESIGN PRINCIPLES:
+- Ultra-minimal: One element only
+- Premium: Refined, elegant, sophisticated
+- Simple: Clean lines, no complexity
+- Luxury: High-end aesthetic
+- Timeless: Classic, not trendy
+
+COLOR OPTIONS:
+1. Pure white with subtle glow
+2. Light gray (#E0E0E0) with glow
+3. Monochrome with single neon accent (very subtle)
+4. Glass effect: Semi-transparent white
+
+TECHNICAL NOTES:
+- Favicon-ready (works at 16x16px)
+- Scalable vector design
+- Dark background optimized
+- Subtle effects only
+- Premium brand feel
